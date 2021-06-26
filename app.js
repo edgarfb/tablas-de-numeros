@@ -44,11 +44,17 @@ function contar(event) {
     let target = event.target;
     let targetNum = +target.innerHTML;
     if(targetNum > seleccion) {
+      // comprobar si la clase existe
+      // si--- remover
+      // --- agregar
         
         target.classList.add('contarAdelante');
         
     }
     else {
+        // comprobar si la clase existe
+      // si--- remover
+      // --- agregar
         target.classList.add('contarAtras');
     }
     
