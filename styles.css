@@ -2,20 +2,31 @@
     box-sizing: border-box;
 }
 
-
-body {
-    padding: 0;
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
+html {
+    
+    font-size: 16px;
 }
 
-.grilla {
+body {
+    padding: 1rem 0;
+    margin: 0;
+    width: 100vw;
+    /* height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.grilla__box {
+h1 {
+    font-family: 'Butterfly Kids', cursive;
+    text-align: center;
+}
+
+.tabla__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tabla {
     display: grid;
     grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
     max-width: 800px;
@@ -25,17 +36,21 @@ body {
 .numero {
     padding: 1rem;
     background: gainsboro;
-    outline: 1px solid ;
+    outline: 1px solid black;
     text-align: center;
     cursor: pointer;
+    
 }
 .seleccion {
-    border: 5px solid blue !important;
+    background: blueviolet;
+    color: white;
 }
 .contarAdelante {
-    border: 5px solid green;
+    background: greenyellow;
+    color: white;
 }
 
 .contarAtras{
-    border: 5px solid red;
+    background: orangered;
+    color: white;
 }

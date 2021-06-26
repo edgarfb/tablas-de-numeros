@@ -1,11 +1,12 @@
-console.log('hi there!');
-let grillaBox = document.querySelector('.grilla__box');
+
+let tabla = document.querySelector('.tabla');
 // Este es el conteneor de cada numero
 let numBox = document.createElement('div');
-let numCantidad = 100;
+let tamanioGrilla = 100;
 
 let seleccion = null;
-let numFollower
+let numeroSeguiente = null;
+let numeroAnterior = null;
 
 
 
@@ -14,18 +15,18 @@ let numFollower
 
 // crear un contenedor para el numero con su correspondiente contenido.
 function crearNumeros() {
-    for (let i = 1; i <= numCantidad; i++) {
+    for (let i = 1; i <= tamanioGrilla; i++) {
         let el = document.createElement('div');
         let content = document.createTextNode(i);
         el.classList.add('numero');
         el.appendChild(content);
-        grillaBox.appendChild(el);
+        tabla.appendChild(el);
     }
 }
 
-grillaBox.addEventListener('click', seleccionarNumero);
-grillaBox.addEventListener('click', contar);
-// grillaBox.addEventListener('click', quitarSeleccionAdelante);
+tabla.addEventListener('click', seleccionarNumero);
+tabla.addEventListener('click', contar);
+// tabla.addEventListener('click', quitarSeleccionAdelante);
 
 
 // selecciona el numero principal y elemina el eventListener para que sea una unica seleccion
@@ -34,39 +35,58 @@ function seleccionarNumero(event) {
     target.classList.add('seleccion');
     // Selecciona el numero principal y lo asigna a la variable 'seleccion'
     seleccion = +target.innerHTML; 
-    console.log(seleccion);
-    grillaBox.removeEventListener('click', seleccionarNumero);
+    numeroSeguiente = seleccion;
+    numeroAnterior = seleccion;
+    tabla.removeEventListener('click', seleccionarNumero);
 }
 
+
+// Realiza el conteo de los numeros y agrega un estilo.
 function contar(event) {
+    comprobarSiguiente(event);
+    comprobarAnterior(event);
     event.stopPropagation();
-    console.log(seleccion);
     let target = event.target;
     let targetNum = +target.innerHTML;
-    if(targetNum > seleccion) {
-      // comprobar si la clase existe
-      // si--- remover
-      // --- agregar
-        
+    let clase = Array.from(target.classList);
+    if(targetNum > seleccion && targetNum < numeroSeguiente) {
+      if(clase.includes('contarAdelante')) {
+        target.classList.remove('contarAdelante');
+      } 
+      else {
         target.classList.add('contarAdelante');
-        
+      }
     }
-    else {
-        // comprobar si la clase existe
-      // si--- remover
-      // --- agregar
+    else if(targetNum < seleccion && targetNum > numeroAnterior) {
+      if(clase.includes('contarAtras')) {
+        target.classList.remove('contarAtras');
+      } 
+      else {
         target.classList.add('contarAtras');
+      }
     }
-    
-    
 }
 
-// agregar la funcion de borrar la ultima seleccion
-// function quitarSeleccionAdelante(event) {
-//     let clase = Array.from(event.target.classList);
-//     console.log(event);
+function comprobarSiguiente(event) {
+  let num = event.target.innerHTML;
+  if(seleccion === null) {
+    numeroSeguiente = seleccion;
+  } else if(+num === numeroSeguiente){
+    numeroSeguiente += 1;
+  }
+  return numeroSeguiente;
+}
 
-// }
+function comprobarAnterior(event) {
+  let num = event.target.innerHTML;
+  if(seleccion === null) {
+    numeroAnterior = seleccion;
+  } else if(+num === numeroAnterior){
+    numeroAnterior -= 1;
+  }
+  return numeroAnterior;
+}
+
 
 
 // funcion principal que ejecuta el programa
