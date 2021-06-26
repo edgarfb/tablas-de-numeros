@@ -3,6 +3,7 @@ let tabla = document.querySelector('.tabla');
 // Este es el conteneor de cada numero
 let numBox = document.createElement('div');
 let tamanioGrilla = 100;
+let reiniciarBtn = document.querySelector('.reiniciar__btn');
 
 let seleccion = null;
 let numeroSeguiente = null;
@@ -26,6 +27,7 @@ function crearNumeros() {
 
 tabla.addEventListener('click', seleccionarNumero);
 tabla.addEventListener('click', contar);
+reiniciarBtn.addEventListener('click', reiniciar);
 // tabla.addEventListener('click', quitarSeleccionAdelante);
 
 
@@ -85,6 +87,11 @@ function comprobarAnterior(event) {
     numeroAnterior -= 1;
   }
   return numeroAnterior;
+}
+
+
+function reiniciar() {
+  location.reload();
 }
 
 

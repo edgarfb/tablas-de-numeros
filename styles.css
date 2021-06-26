@@ -3,7 +3,7 @@
 }
 
 html {
-    
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
 }
 
@@ -20,6 +20,23 @@ h1 {
     font-family: 'Butterfly Kids', cursive;
     text-align: center;
 }
+
+.reiniciar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reiniciar__btn {
+    background: pink;
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
 
 .tabla__container {
     display: flex;
