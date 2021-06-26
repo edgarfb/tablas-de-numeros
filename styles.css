@@ -1,0 +1,34 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+
+.grilla__box {
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    /* grid-template-rows: 10%; */
+}
+
+.numero {
+    padding: 1rem;
+    background: gainsboro;
+    outline: 1px solid ;
+    text-align: center;
+    cursor: pointer;
+}
+.seleccion {
+    border: 5px solid blue !important;
+}
+.contarAdelante {
+    border: 5px solid green;
+}
+
+.contarAtras{
+    border: 5px solid red;
+}
